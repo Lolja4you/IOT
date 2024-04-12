@@ -88,3 +88,6 @@
 - whichcraft (version 0.6.1)
 - zope.event (version 5.0)
 - zope.interface (version 6.2)
+
+***Для оформления интерфеса использоаплись HTML и CSS, а библиотеки констант была создана при помощи JavaScript.***<br>
+***
