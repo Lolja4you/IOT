@@ -92,7 +92,10 @@
 ***Для оформления интерфеса использоаплись HTML и CSS, а библиотека констант была создана при помощи JavaScript.***<br>
 ***
 ## Над репозиторием работали:
-- Lolja4you
-- raiideluxe
-- linaabtm
+Lolja4you
+
+raiideluxe
+
+linaabtm
+
 На нашем YouTube канале вы можете увидеть работу калькулятора, а также объяснение всего кода: <https://www.youtube.com/watch?v=dQw4w9WgXcQ>
