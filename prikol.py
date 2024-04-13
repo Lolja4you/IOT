@@ -1,8 +1,6 @@
 import math, cmath
 import numpy as np
 
-
-
 from latex2sympy2 import latex2sympy, latex2latex
 
 import sympy
