@@ -1,17 +1,261 @@
 {% extends "index.html" %}
 
 {% block content %}
-<div>
-    <h2>Помощь</h2>
-    <h4>Информация о работе калькулятора</h4>
-    <!-- Добавьте ссылки на справочники для каждого раздела -->
-    <a href="Engineering.html">Инженерный калькулятор</a>
-    <a href="Complex-numbers.html">Работа с комплексными числами</a>
-    <a href="Matrix.html">Работа с матрицами</a>
-    <a href="Vectors.html">Работа с векторами</a>
-    <a href="Integrations.html">Интегралы и дифференциалы</a>
-    <a href="Ploter.html">Построение фигур</a>
-    <a href="Translation.html">Перевод величин</a>
-    <a href="Constants.html">Работа с константами</a>
+<style>
+    .sidebar {
+        width: 200px;
+        background-color: #f9f9f9;
+        padding: 20px;
+        position: fixed;
+        margin-left: -130px;
+        margin-top: -20px;
+        overflow: auto;
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(-100%);
+        text-decoration: none;
+        border: solid silver 1.5px;
+        border-radius: 6px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+
+    .sidebar.expanded {
+        transform: translateX(-200%);
+    }
+
+    .main-content {
+        margin-left: 20px;
+        padding: 10px;
+        transition: margin-left 0.3s ease-in-out;
+    }
+
+    .main-content.expanded {
+        margin-left: 10px;
+    }
+
+    .toggle-sidebar {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 100;
+        cursor: pointer;
+    }
+    .sidebar {
+        /* ... your existing sidebar styles ... */
+        overflow-y: scroll; /* Add vertical scrollbar */
+        scrollbar-width: thin;
+        scrollbar-color: #f7a48b gainsboro;
+        max-height: 65%;
+        border-radius: 6px;
+    }
+    
+    /* Style the thumb of the scrollbar */
+    .sidebar::-webkit-scrollbar-thumb {
+        border: 3px solid #050c26; /* Оформление границ бегунка */
+        background-color: #e7643c; /* Цвет бегунка */
+        /* background-color: red; */
+        border-radius: 50px; /* Optional: round the corners of the thumb */
+    }
+
+    /* Style the track of the scrollbar */
+    .sidebar::-webkit-scrollbar-track {
+        background-color: transparent; /* Set the background color of the track */
+    }
+
+    /* Optional: Style the scrollbar on hover */
+    .sidebar::-webkit-scrollbar-thumb:hover {
+        background-color: darkred; /* Change the color on hover */
+    }
+    .help-nav{
+        text-decoration: none;
+        color:#040ea1;
+        /* font-size:; */
+    }
+    .help-nav:hover{
+        background-color: #ddd;
+        padding: 1px;
+        font-size: 16.25px;
+    }
+</style>
+<script>
+    function toggleSidebar() {
+        var sidebar = document.querySelector('.sidebar');
+        var mainContent = document.querySelector('.main-content');
+
+        sidebar.classList.toggle('expanded');
+        mainContent.classList.toggle('expanded');
+    }
+</script>
+<div class="container">
+    <div class="sidebar">
+        <h3>Содержание</h3>
+        <ul>
+            <li><a class='help-nav' href="#description">Описание</a>
+                <ul>
+                    <li><a id="nav" class='help-nav' href="#engineering"> Возможности</a></li>
+                    <li><a id="nav" class='help-nav' href="#libraries-tools"> Библиотеки и инструменты</a></li>
+                    <li><a id="nav" class='help-nav'  href="#development-team">    Команда разработчиков</a></li>
+                    <li><a id="nav" class='help-nav'  href="#additional-resources">    Дополнительные ресурсы</a></li>
+                </ul>
+            </li>
+            <hr>
+            <li><a id="nav" class='help-nav' href="#how-to-use">Как же все таки пользоваться?</a>
+                <ul>
+                    <li><a id="nav" class='help-nav' href="#LaTeX">Что такое LaTex</a></li>
+                    <li><a id="nav" class='help-nav' href="#main-function">Инженерный калькулятор</a></li>
+                    <li><a id="nav" class='help-nav' href="#complex">Комплексные числа</a></li>
+                    <li><a id="nav" class='help-nav' href="#matrix">Матрицы</a></li>
+                    <li><a id="nav" class='help-nav' href="#vectors">Вектора</a></li>
+                    <li><a id="nav" class='help-nav' href="#diff">Дифференциал и интеграл</a></li>
+                    <li><a id="nav" class='help-nav' href="#ploter">Построение графиков</a></li>
+                    <li><a id="nav" class='help-nav' href="#trans">Перевод в другие величины</a></li>
+                    <li><a id="nav" class='help-nav' href="#const-lib">Библиотека констант</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div>
+            <h1 id="description">Инженерный калькулятор</h1>
+            <hr>
+            <p>Данный калькулятор может значительно упростить вашу жизнь! Он позволяет работать с широким спектром задач, начиная с элементарными математическими операциями, заканчивая построением 3D графиков.</p>
+
+            <h2 id="engineering">Возможности</h2>
+            <p>Инженерный калькулятор включает в себя следующие возможности:</p>
+            <ul>
+                <li>Элементарные математические операции</li>
+                <li>Действия с комплексными числами</li>
+                <li>Работа с матрицами</li>
+                <li>Векторная алгебра</li>
+                <li>Операции с дифференциалом и интегралом</li>
+                <li>Вычисление площади и объема</li>
+                <li>Пересечение функций</li>
+                <li>Построение фигур и графиков в двумерной и трехмерной системе координат</li>
+                <li>Перевод чисел в различные системы счисления</li>
+                <li>Поиск массы однородного тела зная плотность</li>
+                <li>Выполнение булевых операций</li>
+            </ul>
+
+            <h2 id="libraries-tools">Библиотеки и инструменты</h2>
+            <p>Инженерный калькулятор использует следующие библиотеки и инструменты:</p>
+            <ul>
+                <li>SymPy для символьных вычислений</li>
+                <li>Matplotlib для построения графиков и 3D-графиков</li>
+                <li>SciPy для математических расчетов</li>
+                <!-- Добавьте остальные библиотеки и инструменты -->
+            </ul>
+
+            <h2 id="development-team">Команда разработчиков</h2>
+            <p>Инженерный калькулятор был разработан командой профессионалов, включая:</p>
+            <ul>
+                <li>Программиста</li>
+                <li>Дизайнера</li>
+                <li>Технического писателя</li>
+            </ul>
+
+            <h2 id="additional-resources">Дополнительные ресурсы</h2>
+            <p>Для получения дополнительной информации о калькуляторе, его возможностях и библиотеках, вы можете:</p>
+            <ul>
+                <li>Посмотреть <a class='help-nav' href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">видео-обзор</a> на нашем YouTube канале</li>
+                <!-- <li>Ознакомиться с <a class='help-nav' href="ссылка_на_справочную_информацию">справочной информацией</a></li> -->
+                <!-- <li>Посмотреть <a class='help-nav' href="ссылка_на_библиотеку_констант">библиотеку констант</a></li> -->
+            </ul>
+            <hr>
+            <h1 id="how-to-use">Как же все таки пользоваться?</h1>
+            <h2 id="LaTeX">Что такое KaTex</h2>
+             <p>KaTeX - это кроссбраузерная библиотека JavaScript, которая отображает математические обозначения в веб-браузерах. Особое внимание в ней уделяется быстрому и простому использованию.[2]
+
+                Изначально он был разработан Khan Academy[3] и в сентябре 2014 года вошел в пятерку самых популярных проектов на GitHub.[4]</p>
+                <p>Большинство форм данного калькулятора поддреживает синтаксис KeTeX</p>
+                <p>Узнать о синтаксисе KaTeX можно тут: <a class="help-nav" href="https://katex.org/docs/supported.html">KaTeX syntax</a></p>
+                
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        renderMathInElement(document.getElementById("katex-table"), {
+                            delimiters: [
+                                { left: "\\(", right: "\\)", display: false },
+                                { left: "\\[", right: "\\]", display: true }
+                            ]
+                        });
+                    });
+                </script>
+
+
+<hr>
+            <h2 id="main-function">Инженерный калькулятор</h2>
+            <p>Инженерный калькулятор позволяет пользователю который знает синтаксис KaTeX превратить своё выражение в численный ответ</p>
+            <p>Под капотом мы обрабатываем синтаксис KaTeX и переводим его в математическое выражение языка python</p>
+            <p>Пример: \sqrt{4} = math.sqrt(4)</p>
+            <p>ВНИМАНИЕ! все тригонометрические функции выдают ответ в радианах!</p>
+            <hr>
+            <h2 id="complex">Извлечение корня из комплескного числа</h2>
+                <p></p>
+                <p>Под капотом мы обрабатываем синтаксис KaTeX и переводим его в математическое выражение языка python</p>
+                <p>Пример: 12 + \sqrt{4}*j = 12+math.sqrt(4)*j</p>
+                <p>В качестве ответа выдается список корней вида [Real, Img]</p>
+                <p>ВНИМАНИЕ! все тригонометрические функции выдают ответ в радианах!</p>
+            <hr>
+            <h2 id="matrix">Матрицы</h2>
+                <p>Данный раздел позволяет находить ранг матрицы, обратную матрицу, находить определитель, превратить матрицу в транспонированную и решать системы уравнений</p>
+                <p>Под капотом мы обрабатываем синтаксис KaTeX и переводим его в математическое выражение языка python</p>
+                <p>простой пример как праввильно вводить матрицу: </p>
+                <b>\begin{matrix}</b><br>
+                <b>    a & b \\</b><br>
+                <b>    c & d </b><br>
+                <b>\end{matrix}</b><br>
+                <p><b>открываем матрицу:</b> \begin{matrix} </p>
+                <p><b>закрываем матрицу:</b> \end{matrix} </p>
+                <p><b>элементы матрицы:</b> a, b, c \sqrt{x}, 12, 14 </p>
+                <p><b>добавить элемент в строка:</b> &</p>
+                <p><b>завершить строку:</b> \\</p>
+                <b>ВНИМАНИЕ! Данный калькулятор на поодреживает буквенную запись, только числа</b>
+
+            <hr>
+            <h2 id="vectors">Вектора</h2>
+                <b>ВНИМАНИЕ! Данный раздел не поддреживает синтаксис и правила написания KaTeX\LaTeX</b>
+                <p>Этот раздел поможет вам вычислить сумму, произведение, скалярное произведение, длину, направляющие косинусы и смешанное произведение векторов.            </p>
+                <p>Вектора задаются в виде координат разделенных запятой, для того чтобы сделать число дробным надо поставить точку 1.2, 1.3, 1.00</p>
+                
+                <hr>
+
+            <h2 id="diff">Дифференциал и интеграл</h2>
+            <p>Данный раздел позволяет найти производную, либо же интеграл(на отрезке) введя всего лишь формулу</p>
+            <p>Под капотом мы обрабатываем синтаксис KaTeX и переводим его в математическое выражение языка python</p>
+    
+            <hr>
+            <h2 id="ploter">Построение графиков</h2>
+            <b>ВНИМАНИЕ! Данный раздел не поддреживает синтаксис и правила написания KaTeX\LaTeX</b>
+
+            <p>Данный раздел позволяет построить график в 2д плоскости</p>
+            <p>Под капотом построение происходит на клиенте. Вместо синтаксиса LaTeX\KaTeX придется использовать синтаксис библиотеки Math.js </p>
+            <b>Подробнее про библиотеку <a class='help-nav' href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math">Math.js</a></b>
+            <p>Можно поменять цвет графика и включить\выключить его отображение</p>
+            <hr>
+            <h2 id="trans">Перевод в другие величины</h2>
+                <b>ВНИМАНИЕ! Данный раздел не поддреживает синтаксис и правила написания KaTeX\LaTeX</b>
+                <p>Данный раздел позволяет переводить один велечины в други такие как см в дюйм и др.</p>
+                <p>На данный момент доступны переводы тольк в меры длины!</p>
+            <hr>
+            <h2 id="const-lib">Библиотека конастант</h2>
+            <b>ВНИМАНИЕ! Данный раздел не поддреживает синтаксис и правила написания KaTeX\LaTeX</b>
+
+                <p>С помощью поиска вы можете найти вашу любимую константу! А так же просмотреть их список и к какой тематике они относятся</p>
+            <hr>
+                <div>
+            </div>
+        </div>
+    </div>
 </div>
+<script>
+    const navLinks = document.getElementsByClassName('sidebar');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const sectionId = this.getAttribute('href');
+            const section = document.querySelector(sectionId);
+            section.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+</script>
 {% endblock %}

@@ -3,12 +3,15 @@
 {% block content %}
 <div class="container">
     <h2>Вычисление корней комплексного числа</h2>
+    <p>Калькулятор комплексных чисел предоставляет возможность находить корни комплексного числа. Комплексное число состоит из действительной и мнимой частей, представленных в виде a + bi, где a - действительная часть, b - мнимая часть, i - мнимая единица (√-1).</p>
+    <p>Получить помощь <a href="/help#complex">По калькулятору</a></p>
+    <p>Получить помощь <a href="/help#LaTeX">По LaTeX\KaTeX</a></p>
     <form id="complexNumberForm" action="/complex-roots-result" method="get">
         <label for="rootPower">Степень корня:</label>
         <input id="rootPower" name="power" required><br>
         <label for="realPart">Действительная часть:</label>
         <textarea id="realPart" name="real" step="any" required></textarea><br>
-        <button type="submit">Отправить формулу</button>
+        <button type="submit">Найти корни</button>
     </form>
     <h3>Формула:</h3>
     <div id="formulaDisplay"></div>

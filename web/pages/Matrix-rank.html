@@ -2,19 +2,18 @@
 
 {% block content %}
 <div class="container">
-    <h2>Инженерный калькулятор</h2>
+    <h2>Найти ранг матрицы</h2>
     <p>
-        Функции: инженерный калькулятор содержит большой набор математических функций, 
-        таких как синус, косинус, тангенс, логарифмы и др. 
-        Это позволяет инженерам и техникам выполнять сложные вычисления, необходимые для решения задач.
-    </p>
-    <form id="calculatorForm" action="/matrix-rank-result" method="get">
+        Ранг матрицы — это размерность линейной оболочки ее строк или столбцов. Ранг матрицы показывает количество линейно независимых строк или столбцов в матрице.    </p>
+        <p>Получить помощь <a href="/help#matrix">По калькулятору</a></p>
+    <p>Получить помощь <a href="/help#LaTeX">По LaTeX\KaTeX</a></p>
+        <form id="calculatorForm" action="/matrix-rank-result" method="get">
         <textarea id="matrixInput" name="matrix" placeholder="Введите матрицу" style="width: 80%;"></textarea>
-        <button type="submit">Вычислить обратную матрицу</button>
+        <button type="submit" title="Вычислить ранг по ip">Вычислить ранг</button>
     </form>
     <div id="formulaOutput">
         {% if rank %}
-            <p>Обратная матрица:</p>
+            <p>Ранг матирцы:</p>
             <div id="invMatrix" class="katex-formula">{{ rank }}</div>
         {% endif %}
     </div>

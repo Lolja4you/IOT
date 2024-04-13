@@ -2,19 +2,18 @@
 
 {% block content %}
 <div class="container">
-    <h2>Инженерный калькулятор</h2>
+    <h2>Транспонирование матрицы</h2>
     <p>
-        Функции: инженерный калькулятор содержит большой набор математических функций, 
-        таких как синус, косинус, тангенс, логарифмы и др. 
-        Это позволяет инженерам и техникам выполнять сложные вычисления, необходимые для решения задач.
-    </p>
-    <form id="calculatorForm" action="/matrix-transpose-result" method="get">
+        Транспонирование матрицы — это операция, при которой строки матрицы становятся столбцами, а столбцы — строками. То есть элементы матрицы меняются местами относительно главной диагонали.    </p>
+        <p>Получить помощь <a href="/help#matrix">По калькулятору</a></p>
+        <p>Получить помощь <a href="/help#LaTeX">По LaTeX\KaTeX</a></p>
+        <form id="calculatorForm" action="/matrix-transpose-result" method="get">
         <textarea id="matrixInput" name="matrix" placeholder="Введите матрицу"></textarea>
-        <button type="submit">Вычислить обратную матрицу</button>
+        <button type="submit">Транспонировать</button>
     </form>
     <div id="formulaOutput">
         {% if transpose_latex %}
-            <p>Обратная матрица:</p>
+            <p>Транспонированая матрица:</p>
             <div id="invMatrix" class="katex-formula">{{ transpose_latex }}</div>
         {% endif %}
     </div>

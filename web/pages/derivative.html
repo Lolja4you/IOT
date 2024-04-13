@@ -2,13 +2,16 @@
 
 {% block content %}
 <div class="container">
-    <h1>Derivative Calculator</h1>
+    <h1>Производная</h1>
+    <p>Производная функции является одним из основных понятий математического анализа. Она позволяет определить скорость изменения функции в конкретной точке, а также многие другие важные характеристики функций.</p>
+    <p>Получить помощь <a href="/help#diff">По калькулятору</a></p>
+    <p>Получить помощь <a href="/help#LaTeX">По LaTeX\KaTeX</a></p>
     <form id="calculatorForm" action="/derivative-result" method="get">
-        <label for="latex_equation">Enter LaTeX equation:</label><br>
+        <label for="latex_equation">LaTeX Производная:</label><br>
         <input type="text" id="latex_equation" name="latex_equation" required><br>
-        <label for="variable">Enter variable:</label><br>
+        <label for="variable">Производная от:</label><br>
         <input type="text" id="variable" name="variable" required><br>
-        <input type="submit" value="Calculate">
+        <input type="submit" value="Найти">
     </form>
     {% if latex_equation and variable %}
         <h4>Производная от: <span class="katex-formula">{{ latex_equation }} d{{ variable }}</span></h4><br>

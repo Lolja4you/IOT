@@ -2,15 +2,18 @@
 
 {% block content %}
 <div class="container">
-    <h1>Integral Calculator</h1>
+    <h1>Калькулятор интегралов</h1>
+    <p>Интеграл функции является одним из основных понятий математического анализа. Он представляет собой обратную операцию к производной и позволяет находить площадь под кривой графика функции.</p>
+    <p>Получить помощь <a href="/help#diff">По калькулятору</a></p>
+    <p>Получить помощь <a href="/help#LaTeX">По LaTeX\KaTeX</a></p>
     <form id="calculatorForm" action="/integral-result" method="get">
-        <label for="latex_equation">Enter LaTeX equation:</label><br>
+        <label for="latex_equation">Взять интеграл от:</label><br>
         <input type="text" id="latex_equation" name="latex_equation" required><br>
-        <label for="variable">Enter variable:</label><br>
+        <label for="variable">Интегрировать по:</label><br>
         <input type="text" id="variable" name="variable" required><br>
-        <label for="int_range">Enter integration range (comma-separated):</label><br>
+        <label for="int_range">Найти производную на отрезке (введите отрезок через запятую):</label><br>
         <input type="text" id="int_range" name="int_range"><br>
-        <input type="submit" value="Calculate">
+        <input type="submit" value="Найти">
     </form>
     {% if latex_equation and variable %}
         <h2 class="katex-formula">{{ latex_equation }}</h2>
