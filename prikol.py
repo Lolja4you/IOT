@@ -26,6 +26,10 @@ calculation_history_complex_roots = []
 def read_form(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
+@app.get("/memology")
+def read_form(request: Request):
+    return templates.TemplateResponse("game.html", {"request": request})
+
 @app.get("/engineering")
 def engineering_form(request: Request):
     return templates.TemplateResponse("pages/Engineering.html", {"request": request,"history": calculation_history[-1:-26:-1]})
